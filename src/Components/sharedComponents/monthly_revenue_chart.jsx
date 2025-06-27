@@ -10,9 +10,9 @@ import {
 
 const MonthlyRevenueChart = ({ data }) => {
   return (
-    <div className=" w-full p-4 mt-10 ml-5 mb-2 md:mb-5 bg-white rounded-2xl shadow-md">
+    <div className=" w-full p-4 mt-10 ml-2 md:ml-5 mb-2 md:mb-5 bg-white rounded-2xl shadow-md">
         <div className='flex justify-between'>
-          <h2 className="text-xl font-semibold mb-5 tracking-[.1em] text-gray-800">
+          <h2 className="text-base font-semibold mb-5 tracking-[.1em] text-gray-800">
             Monthly Revenue
           </h2>
           <div className='bg-gray-200 text-gray-700 font-semibold p-1 rounded-2xl flex items-center justify-center text-center h-10 tracking-[.1em] ' style={{fontSize: '12px'}}>

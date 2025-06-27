@@ -1,33 +1,21 @@
 // services/dashboardService.js
 import axios from 'axios';
+const baseUrl = "http://localhost:1000";
+export const fetchReviews = async () => {
+  const response = await axios.get(`${baseUrl}/reviews/`);
+console.log(`reviews ${response.data.toString()}`);
+console.log(response.data.data) 
 
-// export const fetchDashboardData = async () => {
-//   const response = await axios.get('https://your-api.com/api/admin/dashboard');
-//   return response.data;
-// };
-export const fetchCustomers = async () => {
-  const response = await axios.get('https://your-api.com/api/admin/customers');
-  return response.data;
+ return response.data.data;
 };
-// export const fetchDeliveredOrders = async () => {
-//     try{
-//       const response = await axios.get('http://localhost:1000/orders/');
-//      console.log('Response:', response.data.data);
-//       const orders = response.data.data.filter(order => order.orderStatus === 'delivered');
-//       console.log('Delivered Orders:', orders);
-//       return orders;
-//     } catch (error) {
-//       console.error('Error fetching delivered orders:', error);
-//       throw error;
-//     }
-// };
-// services/dashboardService.js
+
 
 export const fetchDeliveredOrders = async () => {
   try {
-    const response = await axios.get('http://localhost:1000/orders/');
+    const response = await axios.get(`${baseUrl}/orders/`);
     const allOrders = response.data.data;
-
+console.log(`response from orders`)
+console.log(response.data.data);
     const deliveredOrders = allOrders.filter(order => order.orderStatus === 'delivered');
     const totalRevenue = deliveredOrders.reduce((sum, order) => sum + order.totalPrice, 0);
 
@@ -139,6 +127,10 @@ export const fetchDeliveredOrders = async () => {
       status,
       count
     }));
+// allOrders.map((order)=>{
+//     if(order.userId?.username!==undefined)
+//     console.log(order.userId?.username);
+// })
     return {
         totalOrders:allOrders.length,
         orderStatusData,
@@ -150,8 +142,8 @@ export const fetchDeliveredOrders = async () => {
         productName: topSellingProductName,
         quantitySold: topSellingProductQuantity
       },
-      allOrders, // optional: all orders fetched
-      deliveredOrders, // optional: all delivered orders
+      allOrders,
+      deliveredOrders, 
     };
   } catch (error) {
     console.error('Error fetching delivered orders:', error);

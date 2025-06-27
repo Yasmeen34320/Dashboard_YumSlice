@@ -4,10 +4,12 @@ import { LuCircleDollarSign } from "react-icons/lu";
 import { PiHandbagFill } from "react-icons/pi";
 import { RiCake2Line } from "react-icons/ri";
 import { useQuery } from '@tanstack/react-query';
-import { fetchDeliveredOrders } from '../services/dashboardService';
+import { fetchDeliveredOrders, fetchReviews } from '../services/dashboardService';
 import { FaLongArrowAltDown } from "react-icons/fa";
 import MonthlyRevenueChart from './sharedComponents/monthly_revenue_chart';
 import OrderStatusPieChart from './sharedComponents/order_status_chart';
+import RecentOrdersTable from './sharedComponents/recent_orders_table';
+import LatestReviews from './sharedComponents/latest_review';
 
 export default function Dashboard() {
      const { data, isLoading, isError } = useQuery({
@@ -15,16 +17,21 @@ export default function Dashboard() {
     queryFn: fetchDeliveredOrders
   });
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading dashboard data</p>;
+const {data: reviews, isLoading: isLoading1, isError: isError1}=useQuery({
+queryKey:['reviews'],
+queryFn:fetchReviews
+});
+  if (isLoading || isLoading1) return <p>Loading...</p>;
+  if (isError || isError1) return <p>Error loading dashboard data</p>;
 
 //   const { totalRevenue, revenueGrowth, ordersToday, ordersGrowth, topCake, topCakeOrders } = data;
 // const totalRevenue = data.reduce((sum,d)=>sum+d.totalPrice,0); // Example value
   const {deliveredOrders,totalOrders,orderStatusData,monthlyRevenue,topSellingProduct,totalRevenue ,todayCount, percentageChange , allOrders}=data;
-return (
+
+  return (
     <div className='w-full h-full flex justify-center flex-col '>
-      <h1 className='text-2xl font-semibold tracking-[.1em]'>Dashboard</h1>
-      <p className='text-gray-600 font-semibold  tracking-[.05em]'>Welcome back, James! Here's what's happening with your cake store today.
+      <h1 className='text-xl font-semibold tracking-[.1em]'>Dashboard</h1>
+      <p className='text-gray-600 font-semibold  tracking-[.05em] text-sm'>Welcome back, James! Here's what's happening with your cake store today.
 </p>
 
 <div className='w-full tracking-[.1em]  flex flex-col md:flex-row justify-center gap-2items-center mt-4 '>
@@ -85,7 +92,7 @@ return (
 
 <div className='flex justify-between px-4 pb-4'>
   
-    <p className='text-gray-500' style={{fontSize: '0.875rem'}}>{topSellingProduct. quantitySold} orders this month</p>
+    <p className='text-gray-500' style={{fontSize: '0.875rem'}}>{topSellingProduct.quantitySold} orders this month</p>
 </div>
 </div>
 </div>
@@ -93,7 +100,10 @@ return (
     <MonthlyRevenueChart data={monthlyRevenue} />
 <OrderStatusPieChart data={orderStatusData} totalOrders={totalOrders} avgOrderValue={totalRevenue/totalOrders}/>
 </div>
-
+<div className='flex gap-2 w-full flex-col md:flex-row'>
+<RecentOrdersTable  orders={allOrders.slice(0,4)}/>
+<LatestReviews data={reviews}/>
+</div>
     </div>
   )
 }
