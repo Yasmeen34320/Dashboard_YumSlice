@@ -36,7 +36,7 @@ export default function DashboardMain() {
               <li key={to}>
                 <Link
                   to={to}
-                  className={`py-2 px-4 flex items-center gap-4 tracking-[.1em] rounded-md font-semibold hover:text-orange-950 hover:bg-orange-50 ${
+                  className={`py-2 px-4  text-sm flex items-center gap-4 tracking-[.1em] rounded-md font-semibold hover:text-orange-950 hover:bg-orange-50 ${
                     isActive(to) ? 'bg-orange-50 text-orange-950' : 'text-gray-700'
                   }`}
                 >
@@ -78,7 +78,7 @@ export default function DashboardMain() {
                 <Link
                   to={to}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`py-2 px-4 flex items-center gap-3 rounded-md font-medium ${
+                  className={`py-2 px-4 flex text-sm items-center gap-3 rounded-md font-medium ${
                     isActive(to) ? 'bg-orange-50 text-orange-950' : 'text-gray-700'
                   }`}
                 >
