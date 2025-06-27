@@ -23,16 +23,16 @@ export default function DashboardMain() {
   ]
 
   return (
-    <div className="w-full flex">
+    <div className="w-full flex h-screen">
       {/* Sidebar */}
-      <div className="w-1/5 bg-white h-screen flex flex-col shadow-xl border-r border-gray-200">
+  <div className="fixed top-0 left-0 h-screen w-[250px] bg-white border-r border-gray-200 z-10">
   {/* Logo section - fixed height */}
   <div className="h-[18%] border-b border-gray-200 p-4 flex items-center">
     <h2 className="text-lg font-semibold text-orange-950 tracking-[.1em]">Logo</h2>
   </div>
 
   {/* Navigation list - takes remaining height */}
-  <div className="flex-1 overflow-y-auto px-4">
+  <div className="flex-1 overflow-y-auto px-4 ">
     <ul className="mt-4 space-y-2">
       {navLinks.map(({ label, to ,icon}) => (
         <li key={to} className="mb-2 w-full border-radius-lg">
@@ -49,8 +49,8 @@ export default function DashboardMain() {
       ))}
     </ul>
   </div>
-<spacer></spacer>
-<div className='flex h-[13%] items-center justify-start border-t border-gray-200 p-4'>
+{/* <spacer></spacer> */}
+<div className='flex h-[13%] mt-20  items-center justify-start border-t border-gray-200 p-4'>
   <div className='bg-orange-950 p-3 rounded-full'>
 <p className='text-white tracking-[.1em] font-semibold p-0 m-0'>YA</p>
 
@@ -65,7 +65,7 @@ export default function DashboardMain() {
 
 
       {/* Content area */}
-      <div className="w-4/5 ">
+      <div className="ml-[250px] flex-1 overflow-y-auto">
       <div className='flex h-[10%] p-2 px-4 bg-white items-center justify-between border-b border-gray-200 mb-4'>
      {/* Current date display */}
      <div className='flex gap-2 items-center'>
@@ -79,7 +79,7 @@ export default function DashboardMain() {
 
       </div>
         {/* Actual content will come here via <Routes> in App.jsx */}
-<div className='p-4'>
+<div className='px-4 py-2'>
   <Outlet />
 </div>
       </div>
