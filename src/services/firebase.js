@@ -1,14 +1,15 @@
+// firebase.js
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDNnm8Pn4mBjdhHWz-ReF1NPOe_yMTgkb8",
-  authDomain: "yumslice-2bab2.firebaseapp.com",
-  projectId: "yumslice-2bab2",
-  storageBucket: "yumslice-2bab2.firebasestorage.app",
-  messagingSenderId: "926443017819",
-  appId: "1:926443017819:web:b9053d8f5322c078b6917e",
-  measurementId: "G-KTEN2V9P98"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
