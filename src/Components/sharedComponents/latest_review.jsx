@@ -64,6 +64,13 @@ const StarRating = ({ rating }) => {
   ));
   return <div className="flex">{fullStars}</div>;
 };
+const getInitials = (name) => {
+  if (!name) return '';
+  const parts = name.trim().split(' ');
+  const first = parts[0]?.[0].toUpperCase() || '';
+  const second = parts[1]?.[0].toUpperCase() || '';
+  return first + second;
+};
 
 export default function LatestReviews({data}) {
     console.log(data);
@@ -83,7 +90,9 @@ export default function LatestReviews({data}) {
               <div
                 className={`h-8 w-8 flex items-center justify-center rounded-full font-semibold ${idx%2==0?"bg-green-100 text-green-600":"bg-blue-100 text-blue-600"}`}
               >
-                {review.userId?.username.split(' ')[0][0]+review.userId?.username.split(' ')[1][0]}
+                  {getInitials(review.userId?.username)}
+
+                {/* {review.userId?.username.split(' ')[0][0]+review.userId?.username.split(' ').length>1?review.userId?.username.split(' ')[1][0]:' '} */}
               </div>
               <div>
                 <p className="font-semibold text-gray-800 text-sm">{review.userId?.username}</p>
