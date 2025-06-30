@@ -8,29 +8,30 @@ const FilterBar = ({
   setSortOption,
   statusFilter,
   setStatusFilter,
+  onAddCustomer, // optional prop to handle Add button
 }) => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        {/* Left side filters */}
-        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-          {/* Search input with icon */}
+    <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200 mb-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        {/* Left Side: Search + Filters */}
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 w-full md:w-auto">
+          {/* Search Input */}
           <div className="relative flex-grow max-w-md">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <FiSearch className="h-5 w-5 text-gray-400" />
-            </div>
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+              <FiSearch className="h-5 w-5" />
+            </span>
             <input
               type="text"
               placeholder="Search customers..."
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
-          {/* Filter by status */}
+          {/* Status Filter */}
           <select
-            className="border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+            className="w-full sm:w-auto py-2 px-4 rounded-lg border border-gray-300 shadow-sm text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
           >
@@ -39,9 +40,9 @@ const FilterBar = ({
             <option value="Unverified">Unverified</option>
           </select>
 
-          {/* Sort by field */}
+          {/* Sort Filter */}
           <select
-            className="border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+            className="w-full sm:w-auto py-2 px-4 rounded-lg border border-gray-300 shadow-sm text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
           >
@@ -54,8 +55,11 @@ const FilterBar = ({
           </select>
         </div>
 
-        {/* Right side action button */}
-        <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm whitespace-nowrap w-full md:w-auto">
+        {/* Right Side: Add Button */}
+        <button
+          onClick={onAddCustomer}
+          className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-sm transition-all duration-200 text-sm whitespace-nowrap w-full md:w-auto"
+        >
           <FiPlus className="h-5 w-5" />
           Add New Customer
         </button>

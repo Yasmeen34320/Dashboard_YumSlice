@@ -11,6 +11,7 @@ export default class Customer {
     status: string = 'Loading...';
     totalOrders: number = 0;
     totalSpent: number = 0;
+    role: string;
 
     constructor(data: any) {
         this._id = data._id;
@@ -18,6 +19,7 @@ export default class Customer {
         this.username = data.username;
         this.email = data.email;
         this.phoneNumber = data.phoneNumber || '';
+        this.role = data.role || 'user';
         this.image = data.image || '';
         this.addresses = data.addresses || [];
         this.createdAt = data.createdAt;
