@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   MdOutlineDashboard, MdOutlinePayment, MdDateRange, MdMenu
 } from "react-icons/md";
@@ -7,6 +7,7 @@ import { IoBagOutline } from "react-icons/io5";
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { CiUser } from "react-icons/ci";
 import { BiCommentDots } from "react-icons/bi";
+import { useAuth } from '../Context/auth_context';
 
 export default function DashboardMain() {
   const location = useLocation();
@@ -22,7 +23,20 @@ export default function DashboardMain() {
     { label: 'Reviews', to: '/reviews', icon: <BiCommentDots /> },
     { label: 'Payment', to: '/payment', icon: <MdOutlinePayment /> },
   ];
+const { authUser, role, loading ,logout} = useAuth();
+const getInitials = (name) => {
+  if (!name) return '';
+  const parts = name.trim().split(' ');
+  const first = parts[0]?.[0].toUpperCase() || '';
+  const second = parts[1]?.[0].toUpperCase() || '';
+  return first + second;
+};
+  const navigate = useNavigate();
 
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login"); // redirect to login
+  };
   return (
     <div className="flex flex-col md:flex-row h-screen">
       {/* Sidebar (desktop) */}
@@ -36,7 +50,7 @@ export default function DashboardMain() {
               <li key={to}>
                 <Link
                   to={to}
-                  className={`py-2 px-4 flex items-center gap-4 tracking-[.1em] rounded-md font-semibold hover:text-orange-950 hover:bg-orange-50 ${
+                  className={`py-2 px-4 text-sm flex items-center gap-4 tracking-[.1em] rounded-md font-semibold hover:text-orange-950 hover:bg-orange-50 ${
                     isActive(to) ? 'bg-orange-50 text-orange-950' : 'text-gray-700'
                   }`}
                 >
@@ -49,10 +63,13 @@ export default function DashboardMain() {
         </nav>
         <div className="border-t border-gray-200 p-4 flex items-center">
           <div className="bg-orange-950 p-3 rounded-full">
-            <p className="text-white tracking-[.1em] font-semibold">YA</p>
+            <p className="text-white tracking-[.1em] font-semibold">
+                                {getInitials(authUser.username)}
+
+            </p>
           </div>
           <div className="flex flex-col ml-4 items-start">
-            <p className="text-gray-700 tracking-[.1em] font-semibold text-sm">Yasmeen Alaa</p>
+            <p className="text-gray-700 tracking-[.1em] font-semibold text-sm">{authUser.username}</p>
             <p className="text-gray-500 tracking-[.1em] font-semibold text-sm">Admin</p>
           </div>
         </div>
@@ -78,7 +95,7 @@ export default function DashboardMain() {
                 <Link
                   to={to}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`py-2 px-4 flex items-center gap-3 rounded-md font-medium ${
+                  className={`py-2 px-4 flex text-sm items-center gap-3 rounded-md font-medium ${
                     isActive(to) ? 'bg-orange-50 text-orange-950' : 'text-gray-700'
                   }`}
                 >
@@ -104,6 +121,7 @@ export default function DashboardMain() {
             </p>
             <MdDateRange />
           </div>
+          <button onClick={handleLogout} className='p-2 px-4 bg-orange-950 text-white tracking-[.1em] cursor-pointer hover:bg-amber-900 rounded-lg'>LogOut</button>
         </div>
         <div className="px-4 py-2">
           <Outlet />
