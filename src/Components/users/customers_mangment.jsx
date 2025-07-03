@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
-import FilterBar from './sharedComponents/customer_filter_bar';
-import PaginatedDataTable from './sharedComponents/PaginatedDataTable';
-import MessageBox from './sharedComponents/MessageBox';
-import Customer from '../models/Customer';
-import useCustomers from '../hooks/useCustomers';
-import { getHSLColorsFromName, formatDate } from '../utils/format';
+import FilterBar from './customer_filter_bar';
+import PaginatedDataTable from '../sharedComponents/PaginatedDataTable';
+import MessageBox from '../sharedComponents/MessageBox';
+import Customer from '../../models/Customer';
+import useCustomers from '../../hooks/useCustomers';
+import { getHSLColorsFromName, formatDate } from '../../utils/format';
 
 const CustomersManagement = () => {
  const {
@@ -78,7 +78,7 @@ const CustomersManagement = () => {
         <button
           title="Delete"
           onClick={() => openSingleDeleteModal(customer._id)}
-          className="text-red-600 hover:text-red-800 p-1 rounded-full hover:bg-red-50"
+          className="text-red-600 hover:text-red-800 p-1 rounded-full hover:bg-red-50 cursor-pointer"
         >
           <svg
             className="h-5 w-5"
@@ -126,7 +126,7 @@ const CustomersManagement = () => {
     disabled={selectedCustomers.length === 0}
     className={`flex items-center px-4 py-2 rounded-lg transition-all duration-150 ${
       selectedCustomers.length > 0
-        ? 'bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700'
+        ? 'bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 cursor-pointer'
         : 'bg-gray-100 text-gray-400 cursor-not-allowed'
     }`}
   >
