@@ -52,6 +52,8 @@ const FilterBar = ({
             <option value="ordersDesc">Orders: High → Low</option>
             <option value="spentAsc">Spent: Low → High</option>
             <option value="spentDesc">Spent: High → Low</option>
+            <option value="newest">Date: Newest First</option>
+            <option value="oldest">Date: Oldest First</option> 
           </select>
         </div>
 

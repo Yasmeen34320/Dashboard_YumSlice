@@ -71,6 +71,8 @@ export default function useCustomers() {
         case 'ordersDesc': return b.totalOrders - a.totalOrders;
         case 'spentAsc': return a.totalSpent - b.totalSpent;
         case 'spentDesc': return b.totalSpent - a.totalSpent;
+        case 'newest': return new Date(b.createdAt) - new Date(a.createdAt);
+        case 'oldest': return new Date(a.createdAt) - new Date(b.createdAt);
         default: return 0;
       }
     });
