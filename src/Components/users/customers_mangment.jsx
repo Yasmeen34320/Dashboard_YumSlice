@@ -11,7 +11,7 @@ const CustomersManagement = () => {
     loading, filteredCustomers, search, setSearch, statusFilter, setStatusFilter,
     sortOption, setSortOption, selectedCustomers, selectAll,
     handleModalConfirm, openSingleDeleteModal, openBulkDeleteModal, isModalOpen,
-    handleCustomerSelect, handleSelectAll, isBulkDelete,handleModalCancel
+    handleCustomerSelect, handleSelectAll, isBulkDelete,handleModalCancel,customers
   } = useCustomers();
 
   const columns = useMemo(() => [
@@ -96,7 +96,12 @@ const CustomersManagement = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">Customers</h2>
+     <h1 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+      Customers
+      <span className="text-sm bg-blue-100 text-blue-700 font-medium px-3 py-1 rounded-full shadow-sm">
+        {customers.length} Users
+      </span>
+    </h1>
       <FilterBar
         search={search}
         setSearch={setSearch}

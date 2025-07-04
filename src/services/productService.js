@@ -14,7 +14,7 @@ export const deleteProductById = async (productId) => {
   return response.data;
 };
 
-// ADD new product (if you need it)
+// ADD new product
 export const createProduct = async (productData) => {
   const response = await axios.post(API_BASE, productData);
   return response.data;

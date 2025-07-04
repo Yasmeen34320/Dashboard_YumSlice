@@ -145,6 +145,7 @@ export default function useCustomers() {
     handleModalConfirm,
     handleModalCancel,
     setIsModalOpen,
-    isBulkDelete
+    isBulkDelete,
+    customers
   };
 }

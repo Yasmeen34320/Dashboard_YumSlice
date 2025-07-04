@@ -27,7 +27,7 @@ const useProducts = () => {
 
   const filteredProducts = products
     .filter((p) => 
-      p.name.toLowerCase().includes(search.toLowerCase()) &&
+       p.name.toLowerCase().includes(search.toLowerCase()) &&
       (categoryFilter === 'all' || p.category === categoryFilter)
     )
     .sort((a, b) => {
@@ -98,7 +98,7 @@ const useProducts = () => {
     openSingleDeleteModal, openBulkDeleteModal,
     isModalOpen, isBulkDelete,
     handleModalConfirm, handleModalCancel,
-    setProducts
+    setProducts,products
   };
 };
 
