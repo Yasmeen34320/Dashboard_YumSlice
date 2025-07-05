@@ -14,8 +14,7 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
       <QueryClientProvider client={queryClient}>
           <AuthProvider> {/* ✅ Wrap here */}
-        <ProductsManagement />
-        {/* <CustomersManagement /> */}
+            <App />
       </AuthProvider>
       </QueryClientProvider>
     </BrowserRouter>

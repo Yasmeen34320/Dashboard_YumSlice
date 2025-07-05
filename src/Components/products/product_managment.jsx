@@ -196,7 +196,7 @@ const ProductsManagement = () => {
               d="M4 12a8 8 0 018-8v8H4z"
             />
           </svg>
-          <p className="text-gray-500 text-sm">Loading customers...</p>
+          <p className="text-gray-500 text-sm">Loading products...</p>
         </div>
       </div>
     )  : (
