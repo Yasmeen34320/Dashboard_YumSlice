@@ -100,7 +100,7 @@ const PaginatedDataTable = ({ columns, data, rowsPerPage = 10 }) => {
               onClick={() => goToPage(i + 1)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${
                 page === i + 1
-                  ? 'bg-blue-600 text-white border-blue-600'
+                  ? 'bg-orange-950 text-white border-orange-950'
                   : 'text-gray-700 border-gray-300 hover:bg-gray-100'
               } transition`}
             >

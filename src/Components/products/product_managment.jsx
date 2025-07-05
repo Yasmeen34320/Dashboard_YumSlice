@@ -63,7 +63,7 @@ const ProductsManagement = () => {
           type="checkbox"
           checked={selectedProducts.includes(p._id)}
           onChange={() => handleProductSelect(p._id)}
-          className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+          className="h-4 w-4 accent-orange-950 border-gray-300 rounded"
         />
       )
     },
@@ -81,7 +81,7 @@ const ProductsManagement = () => {
       )
     },
     { label: 'Category', key: 'category' },
-    { label: 'Price', key: 'price', render: (p) => `EGP ${p.price.toFixed(2)}` },
+    { label: 'Price (EGP)', key: 'price', render: (p) => ` ${p.price.toFixed(2)}` },
     { label: 'Stock', key: 'stock' },
     { label: 'Discount', key: 'discountPercentage', render: (p) => `${p.discountPercentage}%` },
     {
@@ -122,7 +122,7 @@ const ProductsManagement = () => {
     <div className="p-6">
     <h1 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
       Products
-      <span className="text-sm bg-blue-100 text-blue-700 font-medium px-3 py-1 rounded-full shadow-sm">
+      <span className="text-sm bg-orange-50 text-orange-950 font-medium px-3 py-1 rounded-full shadow-sm">
         {products.length} items
       </span>
     </h1>
@@ -137,15 +137,15 @@ const ProductsManagement = () => {
         onAddProduct={() => openEditorAddModal()}
       />
 
-      <div className="flex items-center justify-between bg-white p-4 rounded shadow mb-4">
-        <div className="flex gap-3">
+      <div className="flex items-center justify-between bg-white px-6 py-4 mb-6 rounded-xl shadow-sm border border-gray-200">
+        <div className="flex items-center space-x-3">
           <input
             type="checkbox"
             checked={selectAll}
             onChange={handleSelectAll}
-            className="h-5 w-5"
+            className="h-5 w-5 accent-orange-950 border-gray-300 rounded"
           />
-          <span>{selectedProducts.length > 0 ? `${selectedProducts.length} selected` : 'Select All'}</span>
+          <span className="text-sm font-medium text-gray-800">{selectedProducts.length > 0 ? `${selectedProducts.length} selected` : 'Select All'}</span>
         </div>
         <button
           onClick={openBulkDeleteModal}
@@ -177,7 +177,7 @@ const ProductsManagement = () => {
       <div className="flex justify-center items-center h-64">
         <div className="flex flex-col items-center space-y-2">
           <svg
-            className="animate-spin h-8 w-8 text-blue-600"
+            className="animate-spin h-8 w-8 text-orange-950"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

@@ -23,7 +23,7 @@ const CustomersManagement = () => {
           type="checkbox"
           checked={selectedCustomers.includes(customer._id)}
           onChange={() => handleCustomerSelect(customer._id)}
-          className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+          className="h-4 w-4 accent-orange-950 border-gray-300 rounded"
         />
       ),
     },
@@ -98,7 +98,7 @@ const CustomersManagement = () => {
     <div className="p-6">
      <h1 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
       Customers
-      <span className="text-sm bg-blue-100 text-blue-700 font-medium px-3 py-1 rounded-full shadow-sm">
+      <span className="text-sm bg-orange-50 text-orange-950 font-medium px-3 py-1 rounded-full shadow-sm">
         {customers.length} Users
       </span>
     </h1>
@@ -117,7 +117,7 @@ const CustomersManagement = () => {
       type="checkbox"
       checked={selectAll}
       onChange={handleSelectAll}
-      className="h-5 w-5 text-blue-600 border-gray-300 rounded"
+      className="h-5 w-5 accent-orange-950 border-gray-300 rounded"
     />
     <span className="text-sm font-medium text-gray-800">
       {selectedCustomers.length > 0
@@ -158,7 +158,7 @@ const CustomersManagement = () => {
       <div className="flex justify-center items-center h-64">
         <div className="flex flex-col items-center space-y-2">
           <svg
-            className="animate-spin h-8 w-8 text-blue-600"
+            className="animate-spin h-8 w-8 text-orange-950"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
