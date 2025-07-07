@@ -40,7 +40,7 @@ const getInitials = (name) => {
   return (
     <div className="flex flex-col md:flex-row h-screen">
       {/* Sidebar (desktop) */}
-      <aside className="hidden md:flex w-[250px] bg-white border-r border-gray-200 flex-col justify-between">
+      <aside className="hidden md:flex w-[270px] bg-white border-r border-gray-200 flex-col justify-between">
         <div className="p-4 border-b border-gray-200 h-[70px] flex items-center">
           <h2 className="text-lg font-semibold text-orange-950 tracking-[.1em]">Logo</h2>
         </div>
@@ -62,14 +62,14 @@ const getInitials = (name) => {
           </ul>
         </nav>
         <div className="border-t border-gray-200 p-4 flex items-center">
-          <div className="bg-orange-950 p-3 rounded-full">
-            <p className="text-white tracking-[.1em] font-semibold">
-                                {getInitials(authUser.username)}
+         <div className="bg-orange-950 px-3 py-2 rounded-full text-center flex items-center justify-center">
+  <p className="text-white font-semibold">
+    {authUser.email[0].toUpperCase()}
+  </p>
+</div>
 
-            </p>
-          </div>
           <div className="flex flex-col ml-4 items-start">
-            <p className="text-gray-700 tracking-[.1em] font-semibold text-sm">{authUser.username}</p>
+            <p className="text-gray-700 tracking-[.1em] font-semibold text-sm">{authUser.email}</p>
             <p className="text-gray-500 tracking-[.1em] font-semibold text-sm">Admin</p>
           </div>
         </div>
