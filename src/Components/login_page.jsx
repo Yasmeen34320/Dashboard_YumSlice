@@ -102,10 +102,9 @@ const handleGoogleLogin = async () => {
   <span class="text-sm whitespace-nowrap tracking-[.1em]">OR Login with Google</span>
   <hr class="flex-grow border-t border-gray-300" />
 </div>
-       <button onClick={handleGoogleLogin} className="w-[60%] cursor-pointer bg-white mx-auto py-1 text-sm tracking-[.2em] rounded flex justify-center  items-center px-4 "  style={{
+       <button onClick={handleGoogleLogin} className=" cursor-pointer bg-white mx-auto  text-sm  rounded-full"  style={{
             boxShadow: "0 0 12px 0 rgba(31, 38, 135, 0.15),  4px 0 rgba(0,0,0,0.07)"}}> 
-            <img src="https://i.pinimg.com/736x/60/41/99/604199df880fb029291ddd7c382e828b.jpg" className="w-10 h-10 mx-2"></img>
-            Log In with Google
+            <img src="https://i.pinimg.com/736x/60/41/99/604199df880fb029291ddd7c382e828b.jpg" className="w-10 h-10 rounded-full"></img>
             </button>
         </div>
       </div>
