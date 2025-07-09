@@ -6,6 +6,8 @@ import PaginatedDataTable from '../sharedComponents/PaginatedDataTable';
 import MessageBox from '../sharedComponents/MessageBox';
 import { createProduct, updateProductById } from '../../services/productService';
 import { formatDate } from '../../utils/format';
+import { FiTrash, FiEdit } from 'react-icons/fi';
+
 
 const ProductsManagement = () => {
   const {
@@ -63,7 +65,7 @@ const ProductsManagement = () => {
           type="checkbox"
           checked={selectedProducts.includes(p._id)}
           onChange={() => handleProductSelect(p._id)}
-          className="h-4 w-4 accent-orange-950 border-gray-300 rounded"
+          className="h-4 w-4 accent-orange-950 border-gray-300 rounded cursor-pointer"
         />
       )
     },
@@ -94,24 +96,14 @@ const ProductsManagement = () => {
             className="text-blue-600 hover:text-blue-800 p-1 rounded-full hover:bg-blue-50 cursor-pointer"
             title="Edit"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-              </svg>
+            <FiEdit />
           </button>
           <button
             onClick={() => openSingleDeleteModal(p._id)}
             className="text-red-600 hover:text-red-800 p-1 rounded-full hover:bg-red-50 cursor-pointer"
             title="Delete"
           >
-              <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-          </svg>
+           <FiTrash />
           </button>
         </div>
       )
@@ -143,7 +135,7 @@ const ProductsManagement = () => {
             type="checkbox"
             checked={selectAll}
             onChange={handleSelectAll}
-            className="h-5 w-5 accent-orange-950 border-gray-300 rounded"
+            className="h-5 w-5 accent-orange-950 border-gray-300 rounded cursor-pointer"
           />
           <span className="text-sm font-medium text-gray-800">{selectedProducts.length > 0 ? `${selectedProducts.length} selected` : 'Select All'}</span>
         </div>
@@ -155,21 +147,8 @@ const ProductsManagement = () => {
               ? 'bg-red-100 text-red-600 hover:bg-red-200 hover:text-red-700 cursor-pointer'
               : 'bg-gray-100 text-gray-400 cursor-not-allowed'
           }`}>
-             <svg
-              className="h-5 w-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-              />
-            </svg>
-            Delete Selected
+           <FiTrash className="h-5 w-5 mr-2" />
+                   Delete Selected
         </button>
       </div>
 

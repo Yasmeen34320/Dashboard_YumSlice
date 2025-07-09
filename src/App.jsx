@@ -8,6 +8,7 @@ import LoginPage from './Components/login_page'
 import PaymentManagement from './Components/payment_managment'
 import Dashboard from './Components/dashboard'
 import AdminRoute from './admin_route'
+import PromoManagement from './Components/PromoCodes/PromoManagement'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="users" element={<CustomersManagement />} />
             <Route path="reviews" element={<ReviewsManagement />} />
             <Route path="payment" element={<PaymentManagement />} />
+            <Route path="promoCodes" element={<PromoManagement />} />
           </Route>
         </Route>
         <Route path="/login" element={<LoginPage />} />

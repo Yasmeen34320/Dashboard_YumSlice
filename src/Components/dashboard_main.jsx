@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 import {
-  MdOutlineDashboard, MdOutlinePayment, MdDateRange, MdMenu
+  MdOutlineDashboard, MdOutlinePayment, MdDateRange, MdMenu,MdLocalOffer 
 } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5";
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
@@ -22,6 +22,7 @@ export default function DashboardMain() {
     { label: 'Customers', to: '/users', icon: <CiUser /> },
     { label: 'Reviews', to: '/reviews', icon: <BiCommentDots /> },
     { label: 'Payment', to: '/payment', icon: <MdOutlinePayment /> },
+    { label: 'Promocodes', to: '/promoCodes', icon: <MdLocalOffer  /> },
   ];
 const { authUser, role, loading ,logout} = useAuth();
 const getInitials = (name) => {

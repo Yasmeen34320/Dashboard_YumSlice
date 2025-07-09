@@ -84,7 +84,7 @@ const EditOrAddProductModal = ({ isOpen, onClose, onSave, product }) => {
     <div className="fixed inset-0 bg-transparent flex justify-center items-center z-50">
        <div className="absolute inset-0 backdrop-blur-xs" />
       <div className="relative bg-white rounded-lg shadow-xl w-full max-w-md mx-auto overflow-hidden">
-        {/* Header with orange-950 background */}
+        {/* Header*/}
         <div className="bg-orange-950 p-5 border-b border-orange-900">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-white">
