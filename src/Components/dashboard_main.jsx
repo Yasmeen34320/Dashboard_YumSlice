@@ -22,7 +22,7 @@ export default function DashboardMain() {
     { label: 'Customers', to: '/users', icon: <CiUser /> },
      { label: 'Admins', to: '/admins', icon: <MdAdminPanelSettings  /> },
     { label: 'Reviews', to: '/reviews', icon: <BiCommentDots /> },
-    { label: 'Payment', to: '/payment', icon: <MdOutlinePayment /> },
+    // { label: 'Payment', to: '/payment', icon: <MdOutlinePayment /> },
     { label: 'Promocodes', to: '/promoCodes', icon: <MdLocalOffer  /> },
   ];
 const { authUser, role, loading ,logout} = useAuth();

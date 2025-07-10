@@ -57,9 +57,8 @@ export default function useCustomers() {
 
   const filteredCustomers = useMemo(() => {
     return customers
-    // .filter((u)=> u.role == 'user')
     .filter((u) => {
-      const matchesSearch = u.username?.toLowerCase().includes(search.toLowerCase());
+      const matchesSearch = u.username?.toLowerCase().includes(search.toLowerCase()) || u.email?.toLowerCase().includes(search.toLowerCase());
       const matchesStatus = statusFilter === 'all' || u.status === statusFilter;
       return matchesSearch && matchesStatus;
     })

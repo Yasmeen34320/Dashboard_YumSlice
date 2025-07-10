@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import FilterBar from './customer_filter_bar';
+import CustomerFilterBar from './customer_filter_bar';
 import PaginatedDataTable from '../sharedComponents/PaginatedDataTable';
 import MessageBox from '../sharedComponents/MessageBox';
 import Customer from '../../models/Customer';
@@ -96,7 +96,7 @@ const CustomersManagement = () => {
         {customers.length} Users
       </span>
     </h1>
-      <FilterBar
+      <CustomerFilterBar
         search={search}
         setSearch={setSearch}
         statusFilter={statusFilter}

@@ -1,15 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
 import DashboardMain from './Components/dashboard_main'
-import ReviewsManagement from './Components/reviews_managment'
+import ReviewsManagement from './Components/reviews/reviews_managment'
 import CustomersManagement from './Components/users/customers_mangment'
-import OrderManagement from './Components/order_managment'
+import OrderManagement from './Components/orders/order_managment'
 import ProductManagement from './Components/products/product_managment'
 import LoginPage from './Components/login_page'
-import PaymentManagement from './Components/payment_managment'
 import Dashboard from './Components/dashboard'
 import AdminRoute from './admin_route'
-import PromoManagement from './Components/PromoCodes/PromoManagement'
-import AdminManagement from './Components/Admin/AdminManagement'
+import PromoManagement from './Components/promoCodes/PromoManagement'
+import AdminManagement from './Components/admin/AdminManagement'
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
             <Route path="users" element={<CustomersManagement />} />
              <Route path="admins" element={<AdminManagement />} />
             <Route path="reviews" element={<ReviewsManagement />} />
-            <Route path="payment" element={<PaymentManagement />} />
+            {/* <Route path="payment" element={<PaymentManagement />} /> */}
             <Route path="promoCodes" element={<PromoManagement />} />
           </Route>
         </Route>
