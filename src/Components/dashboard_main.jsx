@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 import {
-  MdOutlineDashboard, MdOutlinePayment, MdDateRange, MdMenu,MdLocalOffer 
+  MdOutlineDashboard, MdOutlinePayment, MdDateRange, MdMenu,MdLocalOffer ,MdAdminPanelSettings 
 } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5";
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
@@ -20,6 +20,7 @@ export default function DashboardMain() {
     { label: 'Orders', to: '/orders', icon: <IoBagOutline /> },
     { label: 'Products', to: '/products', icon: <LiaBirthdayCakeSolid /> },
     { label: 'Customers', to: '/users', icon: <CiUser /> },
+     { label: 'Admins', to: '/admins', icon: <MdAdminPanelSettings  /> },
     { label: 'Reviews', to: '/reviews', icon: <BiCommentDots /> },
     { label: 'Payment', to: '/payment', icon: <MdOutlinePayment /> },
     { label: 'Promocodes', to: '/promoCodes', icon: <MdLocalOffer  /> },

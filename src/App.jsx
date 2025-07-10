@@ -9,6 +9,7 @@ import PaymentManagement from './Components/payment_managment'
 import Dashboard from './Components/dashboard'
 import AdminRoute from './admin_route'
 import PromoManagement from './Components/PromoCodes/PromoManagement'
+import AdminManagement from './Components/Admin/AdminManagement'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="orders" element={<OrderManagement />} />
             <Route path="products" element={<ProductManagement />} />
             <Route path="users" element={<CustomersManagement />} />
+             <Route path="admins" element={<AdminManagement />} />
             <Route path="reviews" element={<ReviewsManagement />} />
             <Route path="payment" element={<PaymentManagement />} />
             <Route path="promoCodes" element={<PromoManagement />} />

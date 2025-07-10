@@ -106,19 +106,19 @@ const CustomersManagement = () => {
       />
 
     <div className="flex items-center justify-between bg-white px-6 py-4 mb-6 rounded-xl shadow-sm border border-gray-200">
-  <div className="flex items-center space-x-3">
-    <input
-      type="checkbox"
-      checked={selectAll}
-      onChange={handleSelectAll}
-      className="h-5 w-5 accent-orange-950 border-gray-300 rounded cursor-pointer"
-    />
-    <span className="text-sm font-medium text-gray-800">
-      {selectedCustomers.length > 0
-        ? `${selectedCustomers.length} selected`
-        : 'Select All'}
-    </span>
-  </div>
+    <div className="flex items-center space-x-3">
+      <input
+        type="checkbox"
+        checked={selectAll}
+        onChange={handleSelectAll}
+        className="h-5 w-5 accent-orange-950 border-gray-300 rounded cursor-pointer"
+      />
+      <span className="text-sm font-medium text-gray-800">
+        {selectedCustomers.length > 0
+          ? `${selectedCustomers.length} selected`
+          : 'Select All'}
+      </span>
+    </div>
 
   <button
     onClick={openBulkDeleteModal}
