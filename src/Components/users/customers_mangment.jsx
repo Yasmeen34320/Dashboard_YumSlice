@@ -58,9 +58,9 @@ const CustomersManagement = () => {
     },
     { label: 'Orders', key: 'totalOrders' },
     {
-      label: 'Total',
+      label: 'Total (EGP)',
       key: 'totalSpent',
-      render: (c) => `EGP ${c.totalSpent.toFixed(2)}`,
+      render: (c) => `${c.totalSpent.toFixed(2)}`,
     },
     {
       label: 'Status',

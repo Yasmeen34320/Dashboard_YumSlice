@@ -45,7 +45,12 @@ const OrdersManagement = () => {
       label: 'Customer Email',
       key: 'user',
       render: (o) => {
-        return <div className="text-sm font-medium text-gray-900">{o.userId?.email || 'N/A'}</div>
+          return <div>
+          <div className="text-sm">{o.userId?.username || '—'}</div>
+          <div className="text-xs text-gray-400">{o.userId?.email}</div>
+        </div>
+
+        //  <div className="text-sm font-medium text-gray-900">{o.userId?.email || 'N/A'}</div>
 
       },
     },
