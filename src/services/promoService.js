@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:1000/promocodes'; 
+const BASE_URL = 'https://cakesstorebackend-production.up.railway.app/promocodes'; 
 
 // Get all promo codes
 export const getAllPromoCodes = async () => {

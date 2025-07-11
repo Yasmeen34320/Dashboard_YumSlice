@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:1000' });
+const API = axios.create({ baseURL: 'https://cakesstorebackend-production.up.railway.app' });
 
 // Get email verification status using Axios instance
 export const getEmailVerificationStatus = async (uid: string): Promise<boolean> => {

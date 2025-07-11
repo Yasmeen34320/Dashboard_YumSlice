@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:1000/admins';
+const API_URL = 'https://cakesstorebackend-production.up.railway.app/admins';
 
 export const fetchAdmins = async () => {
   const { data } = await axios.get(API_URL);

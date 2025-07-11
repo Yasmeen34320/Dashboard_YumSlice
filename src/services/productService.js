@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:1000/products'; 
+const API_BASE = 'https://cakesstorebackend-production.up.railway.app/products'; 
 
 // GET all products
 export const getAllProducts = async () => {

@@ -4,7 +4,7 @@ import { auth } from "../services/firebase";
 import axios from "axios";
 
 const AuthContext = createContext();
-const baseUrl = "http://localhost:1000";
+const baseUrl = "https://cakesstorebackend-production.up.railway.app";
 
 export const AuthProvider = ({ children }) => {
   const [authUser, setAuthUser] = useState(null);

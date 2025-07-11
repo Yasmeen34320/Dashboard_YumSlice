@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:1000/reviews'; 
+const BASE_URL = 'https://cakesstorebackend-production.up.railway.app/reviews'; 
 
 export const fetchReviews = async () => {
   const res = await axios.get(BASE_URL);

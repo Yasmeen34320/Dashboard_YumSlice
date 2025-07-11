@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:1000/orders';
+const API_URL = 'https://cakesstorebackend-production.up.railway.app/orders';
 
 export const fetchOrders = async () => {
   const res = await axios.get(API_URL);

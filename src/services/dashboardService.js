@@ -1,6 +1,6 @@
 // services/dashboardService.js
 import axios from 'axios';
-const baseUrl = "http://localhost:1000";
+const baseUrl = "https://cakesstorebackend-production.up.railway.app";
 
 export const fetchReviews = async () => {
   const response = await axios.get(`${baseUrl}/reviews/`);
