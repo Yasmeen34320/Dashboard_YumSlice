@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const reviews = [
   {
     initials: 'EB',
@@ -78,9 +80,8 @@ export default function LatestReviews({data}) {
     <div className="bg-white h-[400px] w-full md:w-[29%] rounded-2xl shadow-md p-4 max-w-sm mb-5">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-base font-semibold text-gray-800">Latest Reviews</h2>
-        <a href="#" className="text-sm text-blue-500 font-semibold hover:underline">
-          View All
-        </a>
+               <Link to="/reviews" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</Link>
+
       </div>
 
       <div className="space-y-5 max-h-[300px] overflow-y-auto pr-2">

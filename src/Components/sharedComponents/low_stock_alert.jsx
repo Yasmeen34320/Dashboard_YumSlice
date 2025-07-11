@@ -83,9 +83,11 @@ iconMap[product.category]=="cupcakes"?<RiCake3Line className={` ${iconColor}`} /
                 </p>
               </div>
 
+              {/*
+              
               <button className="px-3 py-1 text-xs tracking-[.1em] bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
                 Restock
-              </button>
+              </button> */}
             </div>
           );
         })}

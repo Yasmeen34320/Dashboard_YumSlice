@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCustomerData, fetchDeliveredOrders } from '../../services/dashboardService';
-import { data } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 
 
 
@@ -49,7 +49,7 @@ const {deliveredOrders}=orders;
 <div className="bg-white rounded-xl shadow-md tracking-[.1em] p-5 w-full max-w-sm h-[300px]">
       <div className="flex justify-between items-center mb-4 tracking-[.1em]">
         <h3 className="text-base font-semibold text-gray-700">Customers</h3>
-        <a href="#" className="text-sm underline text-blue-600 hover:underline font-medium">View All</a>
+        <Link to="/users" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</Link>
       </div>
 
       {/* Summary */}

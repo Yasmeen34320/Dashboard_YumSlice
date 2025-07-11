@@ -11,39 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // When app starts or refreshes, check Firebase auth state
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-  //     if (firebaseUser) {
-  //       try {
-  //         const uid = firebaseUser.uid;
-  //         const res = await axios.get(`${baseUrl}/users/uid/${uid}`);
-  //         const userData = res.data.data;
-  //         setAuthUser(userData);
-  //         setRole(userData.role);
-  //       } catch (error) {
-  //         console.error("Failed to fetch user data from backend:", error);
-  //         setAuthUser(null);
-  //         setRole(null);
-  //       }
-  //     } else {
-  //       setAuthUser(null);
-  //       setRole(null);
-  //     }
-  //     setLoading(false);
-  //   });
-
-  //   return () => unsubscribe();
-  // }, []);
-
-  // const login = async (email, password) => {
-  //   const userCredential = await signInWithEmailAndPassword(auth, email, password);
-  //   const uid = userCredential.user.uid;
-  //   const response = await axios.get(`${baseUrl}/users/uid/${uid}`);
-  //   const userData = response.data.data;
-  //   setAuthUser(userData);
-  //   setRole(userData.role);
-  // };
+  
 
   useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {

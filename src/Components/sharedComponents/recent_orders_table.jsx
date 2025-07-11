@@ -57,6 +57,7 @@
 //   },
 // ];
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const statusColors = {
   delivered: 'bg-green-100 text-green-600',
@@ -75,7 +76,7 @@ export default function OrdersTable({orders}) {
     <div className="h-[400px] overflow-x-auto p-6 bg-white shadow-md rounded-xl w-full md:w-[70%] mb-10">
 <div className="flex justify-between items-center mb-4">
         <h2 className="text-base font-semibold text-gray-700 tracking-[.1em]">Recent Orders</h2>
-        <a href="#" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</a>
+        <Link to="/orders" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</Link>
       </div>    
         <table className="min-w-full text-sm text-left font-semibold">
         <thead className="bg-gray-50 text-gray-600 tracking-[.1em]">

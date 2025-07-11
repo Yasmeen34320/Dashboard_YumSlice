@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   PieChart,
   Pie,
@@ -15,7 +16,7 @@ const OrderStatusPieChart = ({ data, totalOrders = 1248, avgOrderValue = "$56.78
     <div className="bg-white mt-10 rounded-2xl shadow-md p-4 w-full max-w-md h-[70%]">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-base font-semibold text-gray-700 tracking-[.1em]">Order Status</h2>
-        <a href="#" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</a>
+        <Link to="/orders" className="text-sm text-blue-500 underline hover:underline font-semibold tracking-[.1em]">View All</Link>
       </div>
 
       <div className="h-70">

@@ -5,6 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/auth_context";
 import img1 from '../assets/10.jpeg' // 1 , 3 , 8 , 10 ,11
 import { auth, googleProvider } from '../services/firebase';
+  import {
+  EmailAuthProvider,
+  linkWithPopup,
+  updateProfile,
+  fetchSignInMethodsForEmail,
+  linkWithCredential,
+  signInWithCredential,
+  GoogleAuthProvider
+} from "firebase/auth";
 import {
   signInWithPopup,
 } from 'firebase/auth';
@@ -26,36 +35,148 @@ const LoginPage = () => {
     }
   };
 
+
+// const handleGoogleLogin = async () => {
+//   try {
+//     const email = prompt("Enter your email to continue with Google:");
+
+//     if (!email) {
+//       alert("Email is required");
+//       return;
+//     }
+//     console.log(email)
+//     const methods = await fetchSignInMethodsForEmail(auth, email);
+//     console.log(methods)
+//     if (methods.includes("password") && !methods.includes("google.com")) {
+//       // ✅ Email/password user exists but Google not linked yet
+
+//       const password = prompt("Enter your password to link Google login:");
+//       if (!password) throw new Error("Password is required");
+
+//       // Sign in the existing user
+//       const userCred = await signInWithEmailAndPassword(auth, email, password);
+
+//       // Link Google to this user
+//       const googleResult = await linkWithPopup(userCred.user, new GoogleAuthProvider());
+
+//       alert("✅ Google account linked! You can now login with Google.");
+//       navigate("/");
+//     } else if (methods.includes("google.com")) {
+//       // Already has Google → just sign in normally
+//       const result = await signInWithPopup(auth, new GoogleAuthProvider());
+//       navigate("/");
+//     } else {
+//       // ❌ Email not registered or not allowed
+//       alert("❌ You are not registered. Contact admin.");
+//     }
+//   } catch (err) {
+//     console.error("Login error:", err);
+//     alert("Login failed: " + err.message);
+//   }
+// };
+
+// const handleGoogleLogin = async () => {
+//   try {
+//     const result = await signInWithPopup(auth, googleProvider);
+//     const user = result.user;
+
+
+//     // 🚫 Block new signups with Google — allow only pre-existing users
+//     const metadata = user.metadata;
+//     const creationTime = new Date(metadata.creationTime).getTime();
+//     const lastSignInTime = new Date(metadata.lastSignInTime).getTime();
+
+//     // Check if this is a new user (signed in for the first time)
+//     if (Math.abs(creationTime - lastSignInTime) < 5000) {
+//       // User just got created → Not allowed
+//       await user.delete();
+
+//       await auth.signOut();
+
+//       alert("❌ You are not authorized to access this app.");
+//     } else {
+
+// // await linkWithPopup(auth.currentUser, googleProvider);
+//       // Existing user → Allow login
+//             navigate("/"); // Redirect to dashboard
+
+//       console.log("✅ Authorized admin login");
+//     }
+
+//   } catch (error) {
+//     console.error(error);
+//     alert("Login failed");
+//   }
+// };
+
+
+
+
 const handleGoogleLogin = async () => {
   try {
+const displayName = auth.currentUser?.displayName;
+console.log("User displayName:", displayName);
+
     const result = await signInWithPopup(auth, googleProvider);
-    const user = result.user;
+    const googleUser = result.user;
 
-    // 🚫 Block new signups with Google — allow only pre-existing users
-    const metadata = user.metadata;
-    const creationTime = new Date(metadata.creationTime).getTime();
-    const lastSignInTime = new Date(metadata.lastSignInTime).getTime();
+    // Detect unauthorized (new) users
+    const { creationTime, lastSignInTime } = googleUser.metadata;
+    const justCreated = Math.abs(
+      new Date(creationTime).getTime() - new Date(lastSignInTime).getTime()
+    ) < 5000;
 
-    // Check if this is a new user (signed in for the first time)
-    if (Math.abs(creationTime - lastSignInTime) < 5000) {
-      // User just got created → Not allowed
-      await user.delete();
-
+    if (justCreated) {
+      await googleUser.delete();
       await auth.signOut();
-
       alert("❌ You are not authorized to access this app.");
-    } else {
-      // Existing user → Allow login
-            navigate("/"); // Redirect to dashboard
-
-      console.log("✅ Authorized admin login");
+      return;
     }
 
+    // Check which providers are linked
+    const methods =await fetchSignInMethodsForEmail(auth, googleUser.email);
+
+    const hasPassword = methods.includes("password");
+        const isAdmin = googleUser.displayName === "admin";
+console.log("IS " +isAdmin)
+    if (!hasPassword&&!isAdmin) {
+      // ✅ Ask user to input original admin password
+      const password = prompt("🔐 Enter your original admin password to link email login:");
+
+      if (!password) {
+        alert("Password is required to link email login.");
+        return;
+      }
+
+      const emailCred = EmailAuthProvider.credential(googleUser.email, password);
+
+      try {
+        await linkWithCredential(auth.currentUser, emailCred);
+
+
+// 👇 Set displayName to indicate it's an admin account
+//  auth.currentUser.displayName='admin';
+
+await updateProfile(auth.currentUser, {
+  displayName: "admin"
+});
+
+
+console.log("✅ Email/password linked to Google account");
+      } catch (linkErr) {
+        console.error("❌ Failed to link email/password:", linkErr);
+        alert("Failed to link email/password: " + linkErr.message);
+      }
+    }
+
+    navigate("/");
   } catch (error) {
-    console.error(error);
-    alert("Login failed");
+    console.error("❌ Login failed:", error);
+    alert("Login failed: " + error.message);
   }
 };
+
+
 
   return (
     <div className="bg-white w-full h-screen flex">
