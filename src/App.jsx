@@ -7,9 +7,8 @@ import ProductManagement from './Components/products/product_managment'
 import LoginPage from './Components/login_page'
 import Dashboard from './Components/dashboard'
 import AdminRoute from './admin_route'
-import PromoManagement from './Components/promoCodes/PromoManagement'
 import AdminManagement from './Components/admin/AdminManagement'
-
+import PromoManagement from './Components/PromoCodes/PromoManagement'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
