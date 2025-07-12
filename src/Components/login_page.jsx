@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/auth_context";
 import img1 from '../assets/10.jpeg' // 1 , 3 , 8 , 10 ,11
 import { auth, googleProvider } from '../services/firebase';
-  import {
+import logo from '../assets/logo.png'
+  
+import {
   EmailAuthProvider,
   linkWithPopup,
   updateProfile,
@@ -187,15 +189,18 @@ console.log("✅ Email/password linked to Google account");
             boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15), 0 1.5px 4px 0 rgba(0,0,0,0.07)"
           , fontFamily:'cursive'          }}
         >
-<h4 className="text-xl mt-4 font-semibold tracking-[.2em] text-amber-950 text-center mb-4">Logo</h4>
-<h2 className="text-3xl mt-4 font-semibold tracking-[.3em]  text-center mb-4" >YumSlice</h2>
+          <div className="flex justify-center items-center">
+                    <img src={logo} width={180} height={180}/>
+          </div>
+{/* <h4 className="text-xl mt-4 font-semibold tracking-[.2em] text-amber-950 text-center mb-4">Logo</h4>
+<h2 className="text-3xl mt-4 font-semibold tracking-[.3em]  text-center mb-4" >YumSlice</h2> */}
     
       <form onSubmit={handleLogin} className="space-y-4 text-center">
         {/* <label  className="tracking-[.2em]  text-amber-950 text-left mb-2 ">Email</label> */}
         <input
           type="email"
           placeholder="Your Email"
-          className="w-[60%] bg-white border-1 border-gray-200 px-3 py-2 mt-3 rounded"
+          className="w-[60%] bg-white border-1 border-gray-200 px-3 py-2  rounded"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

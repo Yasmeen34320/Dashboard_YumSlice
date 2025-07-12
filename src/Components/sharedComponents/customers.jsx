@@ -8,6 +8,7 @@ const processTopCustomers = (orders) => {
   const map = new Map();
 
   orders.forEach(order => {
+    console.log(order._id)
     const userId = order.userId._id;
     const username = order.userId.username;
     if (!map.has(userId)) {

@@ -8,7 +8,7 @@ import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { CiUser } from "react-icons/ci";
 import { BiCommentDots } from "react-icons/bi";
 import { useAuth } from '../Context/auth_context';
-
+import logo from '../assets/logo.png'
 export default function DashboardMain() {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,7 +44,8 @@ const getInitials = (name) => {
       {/* Sidebar (desktop) */}
       <aside className="hidden md:flex w-[270px] bg-white border-r border-gray-200 flex-col justify-between">
         <div className="p-4 border-b border-gray-200 h-[70px] flex items-center">
-          <h2 className="text-lg font-semibold text-orange-950 tracking-[.1em]">Logo</h2>
+          <img src={logo} width={150} height={150}/>
+          {/* <h2 className="text-lg font-semibold text-orange-950 tracking-[.1em]">Logo</h2> */}
         </div>
         <nav className="flex-1 overflow-y-auto px-4 py-2">
           <ul className="space-y-2 mt-4">
