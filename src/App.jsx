@@ -7,7 +7,7 @@ import ProductManagement from './Components/products/product_managment'
 import LoginPage from './Components/login_page'
 import Dashboard from './Components/dashboard'
 import AdminRoute from './admin_route'
-import AdminManagement from './Components/admin/AdminManagement'
+import AdminManagement from './Components/Admin/AdminManagement'
 import PromoManagement from './Components/PromoCodes/PromoManagement'
 function App() {
   return (
