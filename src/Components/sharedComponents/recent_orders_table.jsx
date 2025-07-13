@@ -111,9 +111,9 @@ export default function OrdersTable({orders}) {
               <td className="px-4 py-3 text-gray-600 flex items-center ">
                <RiMoneyDollarCircleFill />
 
-                <span className={`text-sm font-semibold px-2 py-1 `}>
-                    Cash
-                </span>
+               <span className="text-sm font-semibold px-2 py-1">
+  {order.paymentStatus == "paid" ? "visa" : "cash"}
+</span>
                 </td>
               <td className="px-4 py-3 font-semibold text-gray-800">${order.totalPrice}</td>
             </tr>
