@@ -6,8 +6,8 @@ export const fetchReviews = async () => {
   const response = await axios.get(`${baseUrl}/reviews/`);
   console.log(`reviews ${response.data.toString()}`);
   console.log(response.data.data);
-
-  return response.data.data;
+const reversedReviews = response.data.data.reverse();
+  return reversedReviews;
 };
 
 export const fetchDeliveredOrders = async () => {
