@@ -213,7 +213,9 @@ export const fetchDeliveredOrders = async () => {
 
 export const fetchProductData = async () => {
   const response = await axios.get(`${baseUrl}/products`);
-  const products = response.data.data;
+  // const products = response.data.data;
+  const products = response.data.data.sort((a, b) => a.stock - b.stock);
+
   const categories = new Set(products.map((prod)=>prod.category));
   console.log('from fetch')
   console.log(products);
