@@ -208,7 +208,7 @@ console.log("✅ Email/password linked to Google account");
 
         <input
           type="password"
-          placeholder="Yout Password"
+          placeholder="Your Password"
           className="w-[60%] bg-white border-1 border-gray-200 px-3 py-2 mt-3 rounded"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
